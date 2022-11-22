@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentication.apps.AuthenticationConfig',
     'corsheaders',
-    'cars.apps.CarsConfig'  # This app is for example use only
+    'cars.apps.CarsConfig',  # This app is for example use only
+    'comments',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +156,5 @@ try:
     from drf_jwt_backend.local_settings import *
 except ImportError:
     pass
+
+USE_TZ = False
