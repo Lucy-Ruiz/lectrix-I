@@ -8,12 +8,12 @@ from wish_list import serializers
 from .serializers import WishListSerializer
 
 
-@api_view(['GET'])
-@permission_classes([AllowAny])
-def get_user_wish_list(request, user_id):
-    wish_list = WishList.objects.filter(user_id=user_id)
-    serializer = WishListSerializer(wish_list, many=True)
-    return Response(serializer.data)
+# @api_view(['GET'])
+# @permission_classes([AllowAny])
+# def get_user_wish_list(request, user_id):
+#     wish_list = WishList.objects.filter(user_id=user_id)
+#     serializer = WishListSerializer(wish_list, many=True)
+#     return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])

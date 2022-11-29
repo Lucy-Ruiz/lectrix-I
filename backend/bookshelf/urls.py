@@ -1,6 +1,6 @@
 from django.urls import path, include
 from bookshelf import views
 
-urlpatters = [
+urlpatterns = [
     path('', views.user_bookshelf),
 ]

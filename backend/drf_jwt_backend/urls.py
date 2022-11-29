@@ -21,5 +21,6 @@ urlpatterns = [
     path('api/auth/', include('authentication.urls')),
     path('api/cars/', include('cars.urls')),
     path('api/comments/', include('comments.urls')),
-    path('api/wish_list', include('wish_list.urls')),
+    path('api/wish_list/', include('wish_list.urls')),
+    path('api/bookshelf/', include('bookshelf.urls')),
 ]

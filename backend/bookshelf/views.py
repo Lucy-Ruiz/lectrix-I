@@ -8,12 +8,12 @@ from bookshelf import serializers
 from .serializers import BookshelfSerializer
 
 
-@api_view(['GET'])
-@permission_classes([AllowAny])
-def get_user_bookshelf(request, user_id):
-    bookshelf = Bookshelf.objects.filter(user_id=user_id)
-    serializer = BookshelfSerializer(bookshelf, many=True)
-    return Response(serializer.data)
+# @api_view(['GET'])
+# @permission_classes([AllowAny])
+# def get_user_bookshelf(request, user_id):
+#     bookshelf = Bookshelf.objects.filter(user_id=user_id)
+#     serializer = BookshelfSerializer(bookshelf, many=True)
+#     return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
