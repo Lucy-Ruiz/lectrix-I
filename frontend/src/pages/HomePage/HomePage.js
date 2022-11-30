@@ -1,8 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import SearchBar from "../../components/SearchBar";
+import key from "../../API_Key.json";
 
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -10,31 +13,49 @@ const HomePage = () => {
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [cars, setCars] = useState([]);
+  const [resultsFromSearch, setResultsFromSearch] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("lower decks ");
+  let navigate = useNavigate(); 
 
-  useEffect(() => {
-    const fetchCars = async () => {
-      try {
-        let response = await axios.get("http://127.0.0.1:8000/api/cars/", {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        });
-        setCars(response.data);
-      } catch (error) {
-        console.log(error.response.data);
-      }
-    };
-    fetchCars();
-  }, [token]);
+  async function getBookResults(searchTerm) {
+    console.log("searchTerm in getBookResults in HomePage:", searchTerm)
+    setSearchTerm(searchTerm)
+    try{
+        console.log("calling googlebooks API")
+        let response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${key.googleAPIKey}`)
+        console.log("response.data.items in getBookResults", response.data.items);
+        navigate(`/book/${response.data.items[0].id.bookId}/${user}`)
+        setResultsFromSearch(response.data.items)
+    } catch (error){
+        console.log(error.response.data)
+    }
+    }
+
+//   useEffect(() => {
+//     const fetchCars = async () => {
+//       try {
+//         let response = await axios.get("http://127.0.0.1:8000/api/cars/", {
+//           headers: {
+//             Authorization: "Bearer " + token,
+//           },
+//         });
+//         setCars(response.data);
+//       } catch (error) {
+//         console.log(error.response.data);
+//       }
+//     };
+//     fetchCars();
+//   }, [token]);
   return (
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
-      {cars &&
+      {/* {cars &&
         cars.map((car) => (
           <p key={car.id}>
             {car.year} {car.model} {car.make}
           </p>
-        ))}
+        ))} */}
+        <SearchBar getBookResultsforSearchBar={getBookResults}/>
     </div>
   );
 };
