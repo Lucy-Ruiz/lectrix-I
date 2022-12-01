@@ -262,4 +262,3 @@ dist
 .pnp.*
 
 frontend/src/API_Key.json
-frontend/src/utils/API_Key.json
