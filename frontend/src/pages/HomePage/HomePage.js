@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import SearchBar from "../../components/SearchBar";
+import SearchBar from "../../components/SearchBar/SearchBar";
 import key from "../../API_Key.json";
 
 import axios from "axios";
@@ -23,13 +23,19 @@ const HomePage = () => {
     try{
         console.log("calling googlebooks API")
         let response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${key.googleAPIKey}`)
-        console.log("response.data.items in getBookResults", response.data.items);
-        navigate(`/book/${response.data.items[0].id.bookId}/${user}`)
+        console.log("response.data.items in getBookResults", response.data.items); 
         setResultsFromSearch(response.data.items)
     } catch (error){
         console.log(error.response.data)
     }
     }
+
+
+    useEffect(()=>{
+        if(resultsFromSearch.length > 0){
+            navigate(`/book/${resultsFromSearch[0].id}/`)
+        }
+    }, [resultsFromSearch])
 
 //   useEffect(() => {
 //     const fetchCars = async () => {
@@ -38,7 +44,7 @@ const HomePage = () => {
 //           headers: {
 //             Authorization: "Bearer " + token,
 //           },
-//         });
+//         });  
 //         setCars(response.data);
 //       } catch (error) {
 //         console.log(error.response.data);
