@@ -6,7 +6,7 @@ const RelatedBooks = (props) => {
     <table>
         <thead>
             <tr>
-                <th>Book</th>
+                <th>Related Books</th>
             </tr>
         </thead>
 

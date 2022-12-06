@@ -15,7 +15,7 @@ const CommentList = (props) => {
             <tbody>
                 {props.commentList.map((comment, index) => {
                     return(
-                        <tr>
+                        <tr key={index}>
                             <td>{comment.id}</td>
                             <td>{comment.text}</td>
                             <td>{comment.book_id}</td>
