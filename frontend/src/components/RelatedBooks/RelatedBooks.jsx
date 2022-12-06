@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const RelatedBooks = (props) => {
-    return 
+    return (
     <table>
         <thead>
             <tr>
@@ -11,7 +11,7 @@ const RelatedBooks = (props) => {
         </thead>
 
         <tbody>
-            {props.books.map((book, index) => {
+            {/* {props.books.map((book, index) => {
                 console.log("book variable inside RelatedBooks map", book)
                 let linkUrl=`/book/${book.id}`
                 return(
@@ -20,9 +20,10 @@ const RelatedBooks = (props) => {
                         <Link to={linkUrl}>{book.snippet.title}</Link>
                     </tr>
                 )
-            })};
+            })}; */}
         </tbody>
     </table>
+    )
 };
 
 export default RelatedBooks;
