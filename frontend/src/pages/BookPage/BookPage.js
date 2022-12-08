@@ -47,21 +47,47 @@ const BookPage = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        addBookToWishlist();
+        let newWishlistEntry = {
+            book_id: selectedBook,
+        }
+        addBookToWishlist(newWishlistEntry);
     }
 
-    async function addBookToWishlist(){
-        const headers ={
-            "Authorization": "Bearer " + token
-        }
+    async function addBookToWishlist(newWishlistEntry){
+        let axiosConfig = {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        };
+
         console.log("Adding book to wishlist: ", selectedBook)
         console.log("Displaying user: ", user)
         console.log("Displaying token: ", token)
-        let response = await axios.post('http://127.0.0.1:8000/api/wish_list/', selectedBook)
-        {
-            headers:headers
-        }
+        let response = await axios.post("http://127.0.0.1:8000/api/wish_list/", newWishlistEntry, axiosConfig)
+        
         console.log("Displaying book added to wishlist: ", response)
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        let newBookshelfEntry = {
+            book_id: selectedBook,
+        }
+        addBookToBookshelf(newBookshelfEntry);
+    }
+
+    async function addBookToBookshelf(newBookshelfEntry){
+        let axiosConfig = {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        };
+        console.log("Adding book to bookshelf: ", selectedBook)
+        console.log("Displaying user: ", user)
+        console.log("Displaying token: ", token)
+        let response = await axios.post("http://127.0.0.1:8000/api/bookshelf/", newBookshelfEntry, axiosConfig)
+
+        console.log("Displaying book added to bookshelf: ", response)
     }
     //create bookDetails state variable
     //make axios call to get book details by id (using selectedBook), save response to state
@@ -73,6 +99,9 @@ const BookPage = () => {
             {/* <iframe id="reader" type="text/html" width="640" height="360"></iframe> */}
             <form onSubmit={handleSubmit}>
                 <button type="submit">Add to Wishlist</button>
+            </form>
+            <form onSubmit={handleSubmit}>
+                <button type="submit">Add to Bookshelf</button>
             </form>
             <BookDetails bookDetails={bookDetails}/>
             <CreateCommentForm/>
