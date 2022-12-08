@@ -1,25 +1,26 @@
+import parse from 'html-react-parser';
+
 const BookDetails =(props) => {
     return(
-        <table>
-            <thead>
-                <th>Details</th>
+        <div>
+            <h1>Details</h1>
+            {props.bookDetails.title &&
+            <div>
+                <table>
                     <tr>
-                        {/* <th>Image</th>
-                        <th>Title</th>
-                        <th>Author</th>
+                        <th>    
+                            <img src={props.bookDetails.imageLinks.thumbnail}/>
+                        </th>
+                        <th>
+                            <h2>{props.bookDetails.title}</h2> 
+                            <h4>{props.bookDetails.authors[0]}</h4>       
+                            <h4>{parse(props.bookDetails.description)}</h4>
+                        </th>
                     </tr>
-                    <tr>
-                        <th></th>
-                        <th>Description</th> */}
-                    </tr>
-            </thead>
-            <tbody>
-                <img src={props.bookDetails.imageLinks.thumbnail}/>
-                {props.bookDetails.title}
-                {props.bookDetails.authors[0]}
-                {props.bookDetails.description}
-            </tbody>
-        </table>
+                </table>
+            </div>
+            }
+        </div>
     )
 };
 
