@@ -7,16 +7,18 @@ const BookDetails =(props) => {
             {props.bookDetails.title &&
             <div>
                 <table>
-                    <tr>
-                        <th>    
-                            <img src={props.bookDetails.imageLinks.thumbnail}/>
-                        </th>
-                        <th>
-                            <h2>{props.bookDetails.title}</h2> 
-                            <h4>{props.bookDetails.authors[0]}</h4>       
-                            <h4>{parse(props.bookDetails.description)}</h4>
-                        </th>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th>    
+                                <img src={props.bookDetails.imageLinks.thumbnail}/>
+                            </th>
+                            <th>
+                                <h2>{props.bookDetails.title}</h2> 
+                                <h4>{props.bookDetails.authors[0]}</h4>       
+                                <h4>{parse(props.bookDetails.description)}</h4>
+                            </th>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
             }

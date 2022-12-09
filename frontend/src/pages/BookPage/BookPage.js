@@ -83,11 +83,20 @@ const BookPage = () => {
             }
         };
         console.log("Adding book to bookshelf: ", selectedBook)
-        console.log("Displaying user: ", user)
-        console.log("Displaying token: ", token)
         let response = await axios.post("http://127.0.0.1:8000/api/bookshelf/", newBookshelfEntry, axiosConfig)
 
         console.log("Displaying book added to bookshelf: ", response)
+    }
+
+    async function addNewReview(newReview){
+        let axiosConfig = {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        };
+        console.log("Adding comment: ", newReview)
+        let response = await axios.post("http://127.0.0.1:8000/api/comments/", newReview, axiosConfig)
+        console.log("Displaying comment: ", response)
     }
     //create bookDetails state variable
     //make axios call to get book details by id (using selectedBook), save response to state
@@ -104,7 +113,7 @@ const BookPage = () => {
                 <button type="submit">Add to Bookshelf</button>
             </form>
             <BookDetails bookDetails={bookDetails}/>
-            <CreateCommentForm/>
+            <CreateCommentForm addNewReview={addNewReview} book_id={selectedBook}/>
             <CommentList commentList={commentList}/>
             <RelatedBooks books={relatedBooks} />
         </div>

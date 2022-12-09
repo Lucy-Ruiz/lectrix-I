@@ -10,7 +10,6 @@ const CreateCommentForm = (props) => {
         let newReview = {
             text: review,
             book_id: props.book_id,
-            user_id: props.user,
         };
         console.log(newReview);
         props.addNewReview(newReview);
@@ -21,8 +20,8 @@ const CreateCommentForm = (props) => {
             <div className="form-group">
                 <label className="text-update-input">Review</label>
                 <input type="text" className="input-review" value={review} onChange={(event) => setReview(event.target.value)}/>
+                <button type="submit">Add to Review</button>
             </div>
-
         </form>
     );
 }
