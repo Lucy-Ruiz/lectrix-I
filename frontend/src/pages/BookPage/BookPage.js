@@ -6,13 +6,14 @@ import key from "../../API_Key.json";
 import CreateCommentForm from '../../components/CreateCommentForm/CreateCommentForm';
 import CommentList from '../../components/CommentList/CommentList';
 import BookDetails from '../../components/BookDetails/BookDetails';
+import BookList from '../../components/BookList/BookList';
 import useAuth from '../../hooks/useAuth';
-
 
 const BookPage = () => {
     const [relatedBooks, setRelatedBooks] = useState([]);
     const [commentList, setCommentList] = useState([]);
     const [bookDetails, setBookDetails] = useState({});
+    const [bookList, setBookList] = useState({});
     const {selectedBook} = useParams();
     const [user, token] = useAuth();
     useEffect(() => {
@@ -45,7 +46,7 @@ const BookPage = () => {
         setBookDetails(response.data.volumeInfo)
     }
 
-    function handleSubmit(event) {
+    function handleSubmitWishlist(event) {
         event.preventDefault();
         let newWishlistEntry = {
             book_id: selectedBook,
@@ -68,7 +69,7 @@ const BookPage = () => {
         console.log("Displaying book added to wishlist: ", response)
     }
 
-    function handleSubmit(event) {
+    function handleSubmitBookshelf(event) {
         event.preventDefault();
         let newBookshelfEntry = {
             book_id: selectedBook,
@@ -106,10 +107,10 @@ const BookPage = () => {
         <div>
             {/* <h1>Page for user {user.username}</h1> */}
             {/* <iframe id="reader" type="text/html" width="640" height="360"></iframe> */}
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmitWishlist}>
                 <button type="submit">Add to Wishlist</button>
             </form>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmitBookshelf}>
                 <button type="submit">Add to Bookshelf</button>
             </form>
             <BookDetails bookDetails={bookDetails}/>
