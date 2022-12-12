@@ -116,6 +116,9 @@ const BookPage = () => {
             <form>
             <Link to="/wishlist">Go to wishlist</Link>
             </form>
+            <form>
+            <Link to="/bookshelf">Go to bookshelf</Link>
+            </form>
             <form onSubmit={handleSubmitWishlist}>
                 <button type="submit">Add to Wishlist</button>
             </form>

@@ -3,8 +3,8 @@
 
 const WishlistPage = () => {
     return(
-        <h1>WishlistPage</h1>
+        <h1>Wishlist</h1>
     )
 };
 
-export default WishlistPage
+export default WishlistPage;
