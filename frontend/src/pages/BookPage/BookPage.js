@@ -8,6 +8,7 @@ import CommentList from '../../components/CommentList/CommentList';
 import BookDetails from '../../components/BookDetails/BookDetails';
 import BookList from '../../components/BookList/BookList';
 import useAuth from '../../hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const BookPage = () => {
     const [relatedBooks, setRelatedBooks] = useState([]);
@@ -16,14 +17,19 @@ const BookPage = () => {
     const [bookList, setBookList] = useState({});
     const {selectedBook} = useParams();
     const [user, token] = useAuth();
+
     useEffect(() => {
-        getRelatedBooks();
         getCommentList();
         getBookDetails();
-    }, [])
+    }, [selectedBook])
+
+    useEffect(() => {
+        getRelatedBooks();
+    }, [bookDetails])
+
     async function getRelatedBooks(){
         console.log("Obtaining related book to selectedBooks: ", selectedBook)
-        let response = await axios.get(`https://www.googleapis.com/books/v1/volumes/${selectedBook}`)
+        let response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${bookDetails.categories[0]}`)
         console.log("Getting related books to the search: ", response.data)
 
         setRelatedBooks(response.data.items)
@@ -98,15 +104,18 @@ const BookPage = () => {
         console.log("Adding comment: ", newReview)
         let response = await axios.post("http://127.0.0.1:8000/api/comments/", newReview, axiosConfig)
         console.log("Displaying comment: ", response)
+
+        getCommentList();
     }
-    //create bookDetails state variable
-    //make axios call to get book details by id (using selectedBook), save response to state
-    //use bookDetails to display description and get thumbnail link to insert to <img src="">
 
     return(
         <div>
             {/* <h1>Page for user {user.username}</h1> */}
             {/* <iframe id="reader" type="text/html" width="640" height="360"></iframe> */}
+            {console.log('selectedBook in return', selectedBook)}
+            <form>
+            <Link to="/wishlist">Go to wishlist</Link>
+            </form>
             <form onSubmit={handleSubmitWishlist}>
                 <button type="submit">Add to Wishlist</button>
             </form>

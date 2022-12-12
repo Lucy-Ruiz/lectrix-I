@@ -5,7 +5,11 @@ const BookList = (props) => {
         <table>
             <tbody>
                 {props.bookList.map((book_id, index) => {
-
+                    return(
+                        <tr key={index}>
+                            <td>{book_id}</td>
+                        </tr>
+                    )
                 })}
             </tbody>
         </table>
