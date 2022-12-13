@@ -35,7 +35,7 @@ const WishlistPage = () => {
     return(
         <div>     
             <h1>Wishlist</h1>
-            <BookList wishlistBooks={wishlistBooks}/>
+            <BookList bookList={wishlistBooks}/>
         </div>
     )
 };

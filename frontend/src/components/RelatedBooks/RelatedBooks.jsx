@@ -21,7 +21,7 @@ const RelatedBooks = (props) => {
                         <Link to={linkUrl}>{book.volumeInfo.title}</Link>
                     </tr>
                 )
-            })};
+            })}
         </tbody>
     </table>
     )

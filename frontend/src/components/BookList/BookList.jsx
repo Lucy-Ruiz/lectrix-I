@@ -6,8 +6,8 @@ const BookList = (props) => {
         <table>
             <tbody>
                 {
-                props.wishlistBooks.map &&
-                props.wishlistBooks.map((book, index) => {
+                props.bookList.map &&
+                props.bookList.map((book, index) => {
                     let linkUrl=`/book/${book.id}`
                     return(
                         <tr key={index}>
