@@ -4,10 +4,12 @@ const BookList = (props) => {
     return(
         <table>
             <tbody>
-                {props.bookList.map((book_id, index) => {
+                {
+                props.wishlistBooks.map &&
+                props.wishlistBooks.map((book, index) => {
                     return(
                         <tr key={index}>
-                            <td>{book_id}</td>
+                            <td>{book.data.volumeInfo.title}</td>
                         </tr>
                     )
                 })}

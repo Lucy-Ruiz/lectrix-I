@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 const BookPage = () => {
     const [relatedBooks, setRelatedBooks] = useState([]);
     const [commentList, setCommentList] = useState([]);
-    const [bookDetails, setBookDetails] = useState({});
+    const [bookDetails, setBookDetails] = useState({}); 
     const [bookList, setBookList] = useState({});
     const {selectedBook} = useParams();
     const [user, token] = useAuth();
