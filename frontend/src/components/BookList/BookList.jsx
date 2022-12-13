@@ -1,4 +1,5 @@
 import BookPage from "../../pages/BookPage/BookPage";
+import { Link } from "react-router-dom";
 
 const BookList = (props) => {
     return(
@@ -7,9 +8,11 @@ const BookList = (props) => {
                 {
                 props.wishlistBooks.map &&
                 props.wishlistBooks.map((book, index) => {
+                    let linkUrl=`/book/${book.id}`
                     return(
                         <tr key={index}>
-                            <td>{book.data.volumeInfo.title}</td>
+                            <img src={book.data.volumeInfo.imageLinks.thumbnail}/>
+                            <Link to={linkUrl}>{book.data.volumeInfo.title}</Link>
                         </tr>
                     )
                 })}
