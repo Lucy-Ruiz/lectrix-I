@@ -5,3 +5,6 @@ from authentication.models import User
 class Bookshelf(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     book_id = models.CharField(max_length=100)
+
+    class Meta:
+        unique_together = ('user', 'book_id')
