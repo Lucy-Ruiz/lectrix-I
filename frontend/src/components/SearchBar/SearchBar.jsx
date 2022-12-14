@@ -14,7 +14,7 @@ const SearchBar = (props) => {
     return(
         <form onSubmit={handleSubmit}>
             <label>Search book: </label>
-            <input type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)}></input>
+            <input data-cy='searchField' type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)}></input>
             <button type="submit">Search</button>
         </form>
     );

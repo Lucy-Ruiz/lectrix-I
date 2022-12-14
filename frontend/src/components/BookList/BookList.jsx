@@ -8,7 +8,7 @@ const BookList = (props) => {
                 {
                 props.bookList.map &&
                 props.bookList.map((book, index) => {
-                    let linkUrl=`/book/${book.id}`
+                    let linkUrl=`/book/${book.data.id}`
                     return(
                         <tr key={index}>
                             <img src={book.data.volumeInfo.imageLinks.thumbnail}/>

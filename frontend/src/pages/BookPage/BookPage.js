@@ -28,11 +28,15 @@ const BookPage = () => {
     }, [bookDetails])
 
     async function getRelatedBooks(){
-        console.log("Obtaining related book to selectedBooks: ", selectedBook)
-        let response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${bookDetails.categories[0]}`)
-        console.log("Getting related books to the search: ", response.data)
+        try {
 
-        setRelatedBooks(response.data.items)
+            console.log("Obtaining related book to selectedBooks: ", selectedBook)
+            let response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${bookDetails.categories[0]}`)
+            console.log("Getting related books to the search: ", response.data)
+            setRelatedBooks(response.data.items)
+        }
+        catch(error){}
+
     }
 
     async function getCommentList(){
@@ -70,10 +74,14 @@ const BookPage = () => {
         console.log("Adding book to wishlist: ", selectedBook)
         console.log("Displaying user: ", user)
         console.log("Displaying token: ", token)
+        try{
         let response = await axios.post("http://127.0.0.1:8000/api/wish_list/", newWishlistEntry, axiosConfig)
         
         console.log("Displaying book added to wishlist: ", response)
+        }
+        catch(error){}
     }
+    
 
     function handleSubmitBookshelf(event) {
         event.preventDefault();
@@ -89,10 +97,13 @@ const BookPage = () => {
                 "Authorization": "Bearer " + token
             }
         };
-        console.log("Adding book to bookshelf: ", selectedBook)
-        let response = await axios.post("http://127.0.0.1:8000/api/bookshelf/", newBookshelfEntry, axiosConfig)
+        try {
+            console.log("Adding book to bookshelf: ", selectedBook)
+            let response = await axios.post("http://127.0.0.1:8000/api/bookshelf/", newBookshelfEntry, axiosConfig)
 
-        console.log("Displaying book added to bookshelf: ", response)
+            console.log("Displaying book added to bookshelf: ", response)
+        }
+        catch(error){}
     }
 
     async function addNewReview(newReview){
