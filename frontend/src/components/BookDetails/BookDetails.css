@@ -1,0 +1,7 @@
+.paragraphDescription {
+width: 55rem;
+height: 5rem;
+overflow: scroll;
+text-align: justify;
+text-justify: inter-word;
+}

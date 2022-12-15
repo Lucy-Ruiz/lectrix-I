@@ -125,10 +125,12 @@ const BookPage = () => {
             {/* <iframe id="reader" type="text/html" width="640" height="360"></iframe> */}
             {console.log('selectedBook in return', selectedBook)}
             <form>
-            <Link to="/wishlist">Go to wishlist</Link>
+                <button formaction="/wishlist" type="submit" className='button'>Go to wishlist</button>
+                {/* <Link to="/wishlist">Go to wishlist</Link> */}
             </form>
             <form>
-            <Link to="/bookshelf">Go to bookshelf</Link>
+                <button formaction="bookshelf" type="submit" className='button'>Go to bookshelf</button>
+            {/* <Link to="/bookshelf">Go to bookshelf</Link> */}
             </form>
             <form onSubmit={handleSubmitWishlist}>
                 <button type="submit">Add to Wishlist</button>

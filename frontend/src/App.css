@@ -10,17 +10,18 @@
 
 html {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 p {
-  font-size: 20px;
+  font-size: 12px;
+  color: rgb(69, 67, 67);
 }
 
 button {
   background-color: transparent;
-  border: 2px solid steelblue;
-  color: steelblue;
+  border: 0px solid rgb(19, 14, 2);
+  color: rgb(19, 14, 2);
   font-size: 1rem;
   font-family: inherit;
   max-width: 100px;
@@ -30,7 +31,7 @@ button {
 button:hover {
   cursor: pointer;
   color: white;
-  background-color: steelblue;
+  background-color: rgb(142, 180, 70);
 }
 
 .container {

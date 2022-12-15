@@ -18,9 +18,9 @@ const CreateCommentForm = (props) => {
     return(
         <form onSubmit={handleSubmit} className="form-grid">
             <div className="form-group">
-                <label className="text-update-input">Review</label>
+                <label className="text-update-input"></label>
                 <input type="text" className="input-review" value={review} onChange={(event) => setReview(event.target.value)}/>
-                <button type="submit">Add to Review</button>
+                <button type="submit">Add Review</button>
             </div>
         </form>
     );
