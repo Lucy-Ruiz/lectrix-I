@@ -10,7 +10,7 @@ const BookDetails =(props) => {
                     <tbody>
                         <tr>
                             <th>    
-                                <img src={props.bookDetails.imageLinks.thumbnail}/>
+                                <img className="selectedBookThumbnail"src={props.bookDetails.imageLinks.thumbnail}/>
                             </th>
                             <th>
                                 <h2>{props.bookDetails.title}</h2> 

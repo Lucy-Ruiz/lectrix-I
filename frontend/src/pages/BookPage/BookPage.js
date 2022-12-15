@@ -9,6 +9,8 @@ import BookDetails from '../../components/BookDetails/BookDetails';
 import BookList from '../../components/BookList/BookList';
 import useAuth from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
+import "./BookPage.css"
+import Image from "../../images/background_bookpage.jpg"
 
 const BookPage = () => {
     const [relatedBooks, setRelatedBooks] = useState([]);
@@ -121,23 +123,40 @@ const BookPage = () => {
 
     return(
         <div>
+            <img className='background_bookpage' src={Image}/>
             {/* <h1>Page for user {user.username}</h1> */}
             {/* <iframe id="reader" type="text/html" width="640" height="360"></iframe> */}
             {console.log('selectedBook in return', selectedBook)}
-            <form>
-                <button formaction="/wishlist" type="submit" className='button'>Go to wishlist</button>
-                {/* <Link to="/wishlist">Go to wishlist</Link> */}
-            </form>
-            <form>
-                <button formaction="bookshelf" type="submit" className='button'>Go to bookshelf</button>
-            {/* <Link to="/bookshelf">Go to bookshelf</Link> */}
-            </form>
-            <form onSubmit={handleSubmitWishlist}>
-                <button type="submit">Add to Wishlist</button>
-            </form>
-            <form onSubmit={handleSubmitBookshelf}>
-                <button type="submit">Add to Bookshelf</button>
-            </form>
+            <section className='allButtons'>
+                <section className='navbutton'>
+                    <form>
+                        <button formaction="/" type="submit" className='button'>Back to Search</button>
+                        {/* <Link to="/wishlist">Go to wishlist</Link> */}
+                    </form>
+                </section>
+                <section className='navbutton'>
+                <form>
+                    <button formaction="/wishlist" type="submit" className='button'>Go to Wishlist</button>
+                    {/* <Link to="/wishlist">Go to wishlist</Link> */}
+                </form>
+                </section>
+                <section className='navbutton'>
+                <form>
+                    <button formaction="bookshelf" type="submit" className='button'>Go to Bookshelf</button>
+                {/* <Link to="/bookshelf">Go to bookshelf</Link> */}
+                </form>
+                </section>
+                <section className='navbutton'>
+                <form onSubmit={handleSubmitWishlist}>
+                    <button type="submit">Add to Wishlist</button>
+                </form>
+                </section>
+                <section className='navbutton'>
+                <form onSubmit={handleSubmitBookshelf}>
+                    <button type="submit">Add to Bookshelf</button>
+                </form>
+                </section>
+            </section>
             <BookDetails bookDetails={bookDetails}/>
             <CreateCommentForm addNewReview={addNewReview} book_id={selectedBook}/>
             <CommentList commentList={commentList}/>

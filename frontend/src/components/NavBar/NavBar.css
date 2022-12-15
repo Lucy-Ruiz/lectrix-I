@@ -12,7 +12,7 @@ li {
   background: rgb(19, 14, 2);
   box-shadow: 4px 2px 5px rgb(220, 218, 218);
   color: white;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   padding: 1.5rem 2rem;
 }
 
@@ -32,4 +32,9 @@ li {
 .brand {
   cursor: pointer;
   font-size: 2rem;
+}
+
+.logo{
+    width: 7rem;
+    height: 2rem;
 }
