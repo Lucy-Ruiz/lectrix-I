@@ -26,12 +26,14 @@ button {
   font-family: inherit;
   max-width: 100px;
   padding: 0.5rem 0.5rem;
+  border-radius: 50%;
 }
 
 button:hover {
-  cursor: pointer;
+  cursor:pointer;
   color: white;
   background-color: rgb(142, 180, 70);
+  border-radius: 50%;
 }
 
 .container {

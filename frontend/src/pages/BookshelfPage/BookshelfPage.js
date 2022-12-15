@@ -2,6 +2,8 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import React, {useState, useEffect} from "react";
 import BookList from "../../components/BookList/BookList";
+import "./BookshelfPage.css";
+import Image from "../../images/bookshelf_background.jpg";
 
 
 const BookshelfPage = () => {
@@ -32,8 +34,9 @@ const BookshelfPage = () => {
     }
     return(
         <div>
-        <h1>Bookshelf</h1>
-        <BookList bookList={bookshelfBooks}/>
+            <img className="bookshelf_background" src={Image}/>
+            <h1>Bookshelf</h1>
+            <BookList bookList={bookshelfBooks}/>
         </div>
     )
 };

@@ -14,3 +14,15 @@
     left: 0;
     z-index: -1;
 }
+
+.welcome-element{
+    margin: 0 auto;
+    max-width: 600px;
+    overflow: auto;
+    text-align: center;
+    padding-top: 10rem;
+}
+
+.search-bar{
+    padding-top: 2rem;
+}

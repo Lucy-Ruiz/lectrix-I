@@ -21,7 +21,8 @@
     flex-wrap: wrap;
 }
  .navbutton{
-    width: 5rem;
+    width: 7rem;
     list-style-type: none;
     text-decoration: none;
+    margin: 1.5rem;
  }

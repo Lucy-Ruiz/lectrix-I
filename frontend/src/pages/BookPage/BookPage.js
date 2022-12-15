@@ -142,7 +142,7 @@ const BookPage = () => {
                 </section>
                 <section className='navbutton'>
                 <form>
-                    <button formaction="bookshelf" type="submit" className='button'>Go to Bookshelf</button>
+                    <button formaction="/bookshelf" type="submit" className='button'>Go to Bookshelf</button>
                 {/* <Link to="/bookshelf">Go to bookshelf</Link> */}
                 </form>
                 </section>

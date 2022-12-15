@@ -56,16 +56,20 @@ const HomePage = () => {
 //     fetchCars();
 //   }, [token]);
   return (
-    <div className="container">
-      <h1>Welcome {user.first_name}!</h1>
-      {/* {cars &&
-        cars.map((car) => (
-          <p key={car.id}>
-            {car.year} {car.model} {car.make}
-          </p>
-        ))} */}
-        <SearchBar getBookResultsforSearchBar={getBookResults}/>
+    <div>
         <img className="background_image_library" src={Image}/>
+        <div className="welcome-element">
+        <h1>Welcome {user.first_name}!</h1>
+        {/* {cars &&
+            cars.map((car) => (
+                <p key={car.id}>
+                {car.year} {car.model} {car.make}
+                </p>
+            ))} */}
+            <div className="search-bar">
+            <SearchBar getBookResultsforSearchBar={getBookResults}/>
+            </div>
+        </div>
     </div>
   );
 };
