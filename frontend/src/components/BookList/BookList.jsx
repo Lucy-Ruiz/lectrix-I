@@ -1,23 +1,22 @@
 import BookPage from "../../pages/BookPage/BookPage";
 import { Link } from "react-router-dom";
+import "./BookList.css"
 
 const BookList = (props) => {
     return(
-        <table>
-            <tbody>
+        <section className="booklist-items">
                 {
                 props.bookList.map &&
                 props.bookList.map((book, index) => {
                     let linkUrl=`/book/${book.data.id}`
                     return(
-                        <tr key={index}>
+                        <section className="booklist">
                             <img src={book.data.volumeInfo.imageLinks.thumbnail}/>
-                            <Link to={linkUrl}>{book.data.volumeInfo.title}</Link>
-                        </tr>
+                            <Link className="booklist-description" to={linkUrl}>{book.data.volumeInfo.title}</Link>
+                        </section>
                     )
                 })}
-            </tbody>
-        </table>
+        </section>
     )
 }
 

@@ -16,14 +16,8 @@
 };
 
 
-.wishlist-books{
-    max-width: 100px;
-    color: rgb(80, 99, 43);
-    display: block;
-};
-
 .wishlist-title{
     text-align: center;
-    font-size: 1.5cm;
+    font-size: 12cm;
     padding-top: 2rem;
-};
+}; 

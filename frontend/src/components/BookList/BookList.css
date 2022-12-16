@@ -1,0 +1,21 @@
+.booklist-items{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-inline-start: 1rem;
+    margin: 5rem;
+    gap: 2rem;
+};
+
+.booklist{
+    width: 20rem;
+    list-style-type: none;
+    text-decoration: none;
+    margin: 2rem;
+}
+
+.booklist-description{
+    max-width: 100px;
+    color: rgb(80, 99, 43);
+    display: block;
+}

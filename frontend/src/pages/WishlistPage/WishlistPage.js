@@ -2,8 +2,8 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import React, {useState, useEffect} from "react";
 import BookList from "../../components/BookList/BookList";
-import "./WishlistPage.css";
 import Image from "../../images/wishlist_background.jpg";
+import "./WishlistPage.css";
 
 
 const WishlistPage = () => {
@@ -37,11 +37,9 @@ const WishlistPage = () => {
     return(
         <div> 
             <img className="wishlist_background" src={Image}/>
-            <section className="wishlist-title">
-            Wishlist
-            </section>
+            <h1 className="wishlist-title">Wishlist</h1>
             <section>
-            <BookList bookList={wishlistBooks}/>
+            <BookList className="wishlist-books" bookList={wishlistBooks}/>
             </section>   
         </div>
     )
