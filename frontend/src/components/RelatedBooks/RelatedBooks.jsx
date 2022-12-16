@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BookPage from '../../pages/BookPage/BookPage';
+import "./RelatedBooks.css"
 
 const RelatedBooks = (props) => {
     return (
-    <table>
-        <thead>
-            <tr>
-                <th>Related Books</th>
-            </tr>
-        </thead>
-
-        <tbody>
+    <div>
+        <section className='relatedbooks-title'>
+            Related Books
+        </section>
+        <section className='relatedbooks-items'>
             {props.books.map((book, index) => {
                 console.log("book variable inside RelatedBooks map", book)
                 let linkUrl=`/book/${book.id}`
                 return(
-                    <tr key={index}>
+                    <section className='relatedbook'>
                         <img src={book.volumeInfo.imageLinks.thumbnail}/>
-                        <Link to={linkUrl}>{book.volumeInfo.title}</Link>
-                    </tr>
+                        <Link className='relatedbooks-description' to={linkUrl}>{book.volumeInfo.title}</Link>
+                    </section>
                 )
             })}
-        </tbody>
-    </table>
+        </section>
+    </div>
     )
 };
 

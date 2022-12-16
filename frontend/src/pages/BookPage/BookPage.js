@@ -9,8 +9,8 @@ import BookDetails from '../../components/BookDetails/BookDetails';
 import BookList from '../../components/BookList/BookList';
 import useAuth from '../../hooks/useAuth';
 import { Link } from 'react-router-dom';
-import "./BookPage.css"
-import Image from "../../images/background_bookpage.jpg"
+import "./BookPage.css";
+import Image from "../../images/background_bookpage.jpg";
 
 const BookPage = () => {
     const [relatedBooks, setRelatedBooks] = useState([]);

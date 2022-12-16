@@ -1,0 +1,26 @@
+.relatedbooks-items{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-inline-start: 1rem;
+    margin: 5rem;
+    gap: 2rem;
+};
+
+.relatedbook{
+    width: 20rem;
+    list-style-type: none;
+    text-decoration: none;
+    margin: 2rem;
+}
+
+.relatedbooks-description{
+    max-width: 100px;
+    color: rgb(80, 99, 43);
+    display: block;
+}
+
+.relatedbooks-title{
+    text-align: center;
+    font-size: 8mm;
+}
