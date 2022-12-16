@@ -6,8 +6,8 @@ const CommentList = (props) => {
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Text</th>
+                    {/* <th>ID</th> */}
+                    <th>Reviews</th>
                     {/* <th>Book ID</th>
                     <th>User ID</th> */}
                 </tr>
@@ -16,7 +16,7 @@ const CommentList = (props) => {
                 {props.commentList.map((comment, index) => {
                     return(
                         <tr key={index}>
-                            <td>{comment.id}</td>
+                            {/* <td>{comment.id}</td> */}
                             <td>{comment.text}</td>
                             {/* <td>{comment.book_id}</td>
                             <td>{comment.user_id}</td> */}

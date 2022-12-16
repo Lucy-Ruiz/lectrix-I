@@ -157,8 +157,10 @@ const BookPage = () => {
                 </form>
                 </section>
             </section>
-            <BookDetails bookDetails={bookDetails}/>
-            <CreateCommentForm addNewReview={addNewReview} book_id={selectedBook}/>
+            <div className='book-n-addReview'>
+            <p><BookDetails bookDetails={bookDetails}/></p>
+            <p><CreateCommentForm addNewReview={addNewReview} book_id={selectedBook}/></p>
+            </div>
             <CommentList commentList={commentList}/>
             <RelatedBooks books={relatedBooks} />
         </div>

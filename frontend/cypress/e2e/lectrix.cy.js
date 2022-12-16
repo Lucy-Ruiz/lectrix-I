@@ -9,7 +9,7 @@ describe('all lectrix tests', () => {
             cy.get('form > button').click()
             cy.get('.input-review').type('review Cypress')
             cy.get('.form-group > button').click()
-            cy.get(':nth-child(7) > tbody > :nth-child(5) > :nth-child(2)').should('have.text', 'review Cypress')
+            cy.get(':nth-child(7) > tbody > :nth-child(5) > :nth-child(1)').should('have.text', 'review Cypress')
         })
     })
     describe('test for add book to bookshelf', () => {

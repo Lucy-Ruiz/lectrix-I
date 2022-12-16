@@ -1,0 +1,7 @@
+.input-review{
+    height: 300px;
+    width: 300px;
+    top: 10rem;
+    word-wrap: break-word;
+    word-break: break-all;
+}
